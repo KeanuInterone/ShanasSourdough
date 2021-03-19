@@ -13,6 +13,9 @@ services:
         - 4000:4000
       volumes:
         - ./todo-backend:/usr/src/app
+        - /usr/src/app/node_modules # anonymous volume for node_modules only
+      env_file: 
+        - dev.env
     todo-db:
       image: mongo
       volumes: 

@@ -8,4 +8,19 @@ http://localhost:4000/todo/create
 curl \
 --request GET \
 --header "Content-Type: application/json" \
+--header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNTJkYmFiYzg2ZGE4MDAxZDU5M2RjMiIsImVtYWlsIjoia2VhbnUuaW50ZXJvbmVAZ21haWwuY29tIiwiaWF0IjoxNjE2MDQ2Mzk1fQ.Scrw6gXVGvl5G3DN3ER6lVGdDa2pElGmoSjDDvp0f74" \
 http://localhost:4000/todos
+
+
+curl \
+--request POST \
+--header "Content-Type: application/json" \
+--data '{"email": "keanu.interone@gmail.com", "password": "password"}' \
+http://localhost:4000/user/create
+
+
+curl \
+--request POST \
+--header "Content-Type: application/json" \
+--data '{"email": "keanu.interone@gmail.com", "password": "password"}' \
+http://localhost:4000/login
