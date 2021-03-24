@@ -1,6 +1,6 @@
 const baseURL = 'http://localhost:4000/'
 
-export const login = (email, password) => fetch(baseURL + 'login', {
+export const login = (email, password) => fetch(baseURL + 'users/login', {
     method: "POST",
     headers: {
         "Accept": "application/json",

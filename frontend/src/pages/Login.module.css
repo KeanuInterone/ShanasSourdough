@@ -1,0 +1,28 @@
+.page {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+.header {
+    height: 80px;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.title {
+    margin: 10px;
+    font-size: 40px;
+    color: var(--text-color);
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 20px;
+}
+
+.buttonContainer {
+    margin-top: 40;
+}

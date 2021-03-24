@@ -1,0 +1,13 @@
+.menu-container {
+    position: absolute;
+    width: 100vw;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu {
+    background-color: aquamarine;
+    width: 90%;
+}

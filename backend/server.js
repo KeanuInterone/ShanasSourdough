@@ -15,7 +15,7 @@ const HOST = '0.0.0.0'
 
 
 // CONNECT TO DATABASE //
-mongoose.connect('mongodb://todo-db:27017/todo', { useNewUrlParser: true })
+mongoose.connect('mongodb://db:27017/todo', { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
     console.log("Successful connection to db")
 })

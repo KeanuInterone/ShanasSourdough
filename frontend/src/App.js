@@ -3,12 +3,26 @@ import logo from './logo.svg';
 import { TodoList } from './TodoList'
 import { CreateTodo } from './CreateTodo'
 import { EditTodo } from './EditTodo'
-import { Login } from './Login'
+import { Login } from './pages/Login'
+import Home from './pages/Home'
 
 
 function App() {
   return (
     <div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/edit/:id" component={EditTodo} />
+        <Route path="/login" component={Login} />
+        <Route path="/create" component={CreateTodo} />
+      </Switch>
+    </div>
+      
+  );
+}
+
+/*
+<div>
       <nav className="navbar bg-light navbar-expand-lg navbar-light">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
@@ -22,14 +36,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Switch>
-        <Route exact path="/" component={TodoList} />
-        <Route path="/edit/:id" component={EditTodo} />
-        <Route path="/create" component={CreateTodo} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </div>
-  );
-}
+  </div>
+*/
 
 export default App;
