@@ -5,15 +5,15 @@ services:
       build: ./frontend
       ports:
         - 3000:3000
-      volumes:
-        - ./frontend:/usr/src/app
+      # volumes:
+      #   - ./frontend:/usr/src/app
     backend:
       build: ./backend
       ports:
         - 4000:4000
-      volumes:
-        - ./backend:/usr/src/app
-        - /usr/src/app/node_modules # anonymous volume for node_modules only
+      # volumes:
+      #   - ./backend:/usr/src/app
+      #   - /usr/src/app/node_modules # anonymous volume for node_modules only
       env_file: 
         - dev.env
     db:
