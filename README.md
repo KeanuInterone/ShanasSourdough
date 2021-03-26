@@ -13,7 +13,7 @@
 
 * For development we'll want to see the changes we make in the code hot-reloaded into the browser
 
-* To do this uncomment the volumes in `docker-compose.yml' file for the `frontend` and `backend` services
+* To do this uncomment the volumes in `docker-compose.yml` file for the `frontend` and `backend` services
 
 * Then we also want to `cd` into the `frontend` and `backend` and run `npm install`
 
