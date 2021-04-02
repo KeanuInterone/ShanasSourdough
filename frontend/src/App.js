@@ -4,10 +4,18 @@ import { TodoList } from './TodoList'
 import { CreateTodo } from './CreateTodo'
 import { EditTodo } from './EditTodo'
 import { Login } from './pages/Login'
-import Home from './pages/Home'
+import { AdminDashboard } from './pages/AdminDashboard'
+import { Home } from './pages/Home'
+import{ Products } from './pages/Products'
+import { ProductCreate } from './pages/ProductCreate'
+import { ProductEdit } from './pages/ProductEdit'
+import{ Customers } from './pages/Customers'
+import { CustomerCreate } from './pages/CustomerCreate'
+import { CustomerEdit } from './pages/CustomerEdit'
 
 
 function App() {
+
   return (
     <div>
       <Switch>
@@ -15,6 +23,13 @@ function App() {
         <Route path="/edit/:id" component={EditTodo} />
         <Route path="/login" component={Login} />
         <Route path="/create" component={CreateTodo} />
+        <Route path="/admin_dashboard" component={AdminDashboard} />
+        <Route path="/products/create" component={ProductCreate} />
+        <Route path="/products/edit/:id" component={ProductEdit} />
+        <Route path="/products" component={Products} />
+        <Route path="/customers/create" component={CustomerCreate} />
+        <Route path="/customers/edit/:id" component={CustomerEdit} />
+        <Route path="/customers" component={Customers} />
       </Switch>
     </div>
       

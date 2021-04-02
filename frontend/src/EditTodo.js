@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { TodoForm } from './TodoForm'
 import { useHistory, useRouteMatch } from 'react-router-dom'
-import { getTodo, editTodo } from './api'
+import * as API from './API'
 
 
 export const EditTodo = () => {
@@ -12,14 +12,14 @@ export const EditTodo = () => {
 
     useEffect(() => {
         const fetchTodo = async (id) => {
-            const todo = await getTodo(id)
+            const todo = await API.getTodo(id)
             setTodo(todo)
         }
         fetchTodo(match.params.id)
     }, [])
 
     const onSubmit = async (data) => {
-        const updatedTodo = await editTodo(data, todo._id)
+        const updatedTodo = await API.editTodo(data, todo._id)
         alert('Created todo:\n' + JSON.stringify(updatedTodo))
         history.push("/")
     }

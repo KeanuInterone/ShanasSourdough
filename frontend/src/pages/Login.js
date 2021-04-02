@@ -1,32 +1,36 @@
 
-import styles from './Login.module.css'
+import './Admin.css'
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form'
-import { login } from '../api'
 import { Button } from '@material-ui/core';
+import * as API from '../API'
+import { useHistory } from 'react-router-dom'
+
 
 
 export const Login = () => {
-
+    
+    const history = useHistory()
     const { register, handleSubmit } = useForm()
 
 
     const submitHandler = handleSubmit((data) => {
-        alert(JSON.stringify(data))
-        login(data.email, data.password).then((response) => {
-            console.log(response)
+        API.login(data.email, data.password).then((success) => {
+            if (success) {
+                history.push('/admin_dashboard')
+            }
         })
     })
 
     return (
-        <div className={styles.page}>
-            <div className={styles.header}>
-                <div className={styles.title}>
+        <div className='page'>
+            <div className='header'>
+                <div className='title'>
                     Login
                 </div>
             </div>
-            <form className={styles.formContainer} onSubmit={submitHandler}>
+            <form className='formContainer' onSubmit={submitHandler}>
                 <TextField
                     inputRef={register}
                     variant="outlined"
@@ -52,8 +56,8 @@ export const Login = () => {
                     autoComplete="current-password"
                 />
 
-                <div className={styles.buttonContainer}>
-                    <Button variant='contained' color='primary' size='large' onClick={submitHandler}>
+                <div className='buttonContainer'>
+                    <Button type="submit" variant='contained' color='primary' size='large'>
                         Login
                     </Button>
                 </div>

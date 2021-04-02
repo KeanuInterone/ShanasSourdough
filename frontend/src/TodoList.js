@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getTodos } from './api'
+import * as API from './API'
 
 export const TodoList = () => {
     const [items, setItems] = useState([])
 
     useEffect(() => {
         const fetchItems = async () => {
-            const todos = await getTodos()
+            const todos = await API.getTodos()
             setItems(todos)
         }
 

@@ -8,6 +8,8 @@ const mongoose = require('mongoose')
 const User = require('./models/User')
 const users = require('./controllers/users.js')
 const todos = require('./controllers/todos.js')
+const products = require('./controllers/products.js')
+const customers = require('./controllers/customers.js')
 
 // VARIABLES //
 const PORT = 4000
@@ -30,6 +32,7 @@ app.use(passport.initialize())
 var opts = {}
 opts.jwtFromRequest = passportJWT.ExtractJwt.fromAuthHeaderAsBearerToken()
 opts.secretOrKey = process.env.JWT_SECRET;
+// JWT Authentication
 passport.use(new passportJWT.Strategy(opts, function (jwt_payload, done) {
     User.findById(jwt_payload.id, function (err, user) {
         if (err) {
@@ -42,6 +45,7 @@ passport.use(new passportJWT.Strategy(opts, function (jwt_payload, done) {
         }
     });
 }));
+// Email and password Authentication
 passport.use(new passportLocal.Strategy({ usernameField: 'email' },
     function (email, password, done) {
         User.findOne({ email: email }, async function (err, user) {
@@ -70,6 +74,12 @@ function comparePassword(password, hash) {
 app.get('/', (req, res) => {
     res.send('Welcome to the todo backend')
 })
+
+// PRODUCTS //
+app.use('/products', products)
+
+// CUSTOMERS //
+app.use('/customers', customers)
 
 // USERS //
 app.use('/users', users)

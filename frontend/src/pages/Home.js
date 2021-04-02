@@ -4,12 +4,13 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem';
 import { useState } from 'react'
 import BreadCell from '../components/BreadCell'
-import './Home.css'
+import styles from './Home.module.css'
 import { useHistory } from 'react-router-dom';
+import { API } from '../API'
 
 
 
-function Home() {
+export const Home = () => {
 
     const history = useHistory()
     const [anchorEl, setAnchorEl] = useState(null);
@@ -29,10 +30,10 @@ function Home() {
     let bread = ['White', 'Wheat', 'Cinimon', 'Apple Cider Viniger', 'Dill', 'Chocolate']
 
     return (
-        <div className='page'>
-            <div className='header'>
-                <div className='title-container'>
-                    <h1 className='title'>
+        <div className={styles.page}>
+            <div className={styles.header}>
+                <div className={styles.titleContainer}>
+                    <h1 className={styles.title}>
                         Shana's Sourdough
                     </h1>
                 </div>
@@ -65,11 +66,11 @@ function Home() {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
                 <MenuItem onClick={handleLogin}>Login</MenuItem>
             </Menu>
-            <div className="bread-cell-grid">
+            <div className={styles.breadCellGrid}>
                 {
                     bread.map(bread => {
                         return (
-                            <BreadCell bread={bread} />
+                            <BreadCell key={bread} bread={bread} />
                         )
                     })
                 }
