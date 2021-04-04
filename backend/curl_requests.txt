@@ -24,3 +24,9 @@ curl \
 --header "Content-Type: application/json" \
 --data '{"email": "keanu.interone@gmail.com", "password": "password"}' \
 http://localhost:4000/users/login
+
+curl \
+--request GET \
+--header "Content-Type: application/json" \
+--header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNWFjNWVlMmYxYzRmMDAyOWU5YWI3NCIsImVtYWlsIjoia2VhbnUuaW50ZXJvbmVAZ21haWwuY29tIiwiaWF0IjoxNjE3NDIwNjE4fQ.0LYZpWkrWDZcJ-lDTfb_sV1q0-VBbNf9h5LHEsnUVy8" \
+http://localhost:4000/products/getSignedImageURL/myfilename/png

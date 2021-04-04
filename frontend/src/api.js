@@ -1,3 +1,4 @@
+const axios = require('axios')
 const baseURL = 'http://localhost:4000'
 let JWT
 
@@ -166,6 +167,38 @@ export async function editCustomer(customer, id) {
     } else {
         return false
     }
+}
+
+export async function getSignedImageURL(fileName, fileType) {
+    const imageData = {
+        fileName: fileName,
+        fileType: fileType
+    }
+    let res = await fetch(baseURL + '/getSignedImageURL', {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + JWT
+        },
+        body: JSON.stringify(imageData)
+    })
+    if (res.status == 200) {
+        return await res.json()
+    } else {
+        return null
+    }
+}
+
+export async function uploadImage(signedImageURL, file) {
+
+    const options = {
+        headers: {
+            "Content-Type": file.type
+        }
+    }
+
+    await axios.put(signedImageURL, file, options)
 }
 
 

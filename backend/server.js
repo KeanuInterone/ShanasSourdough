@@ -10,6 +10,8 @@ const users = require('./controllers/users.js')
 const todos = require('./controllers/todos.js')
 const products = require('./controllers/products.js')
 const customers = require('./controllers/customers.js')
+const aws = require('aws-sdk')
+
 
 // VARIABLES //
 const PORT = 4000
@@ -87,6 +89,45 @@ app.use('/users', users)
 
 // TODOS //
 app.use('/todos', todos)
+
+
+// SIGNED IMAGE URL //
+app.post('/getSignedImageURL', passport.authenticate('jwt', { session: false }), async (req, res) => {
+
+    const fileName = req.body.fileName
+    const fileType = req.body.fileType
+    const s3Bucket = process.env.S3_BUCKET_NAME
+    
+    const credentials = new aws.Credentials({
+        accessKeyId: process.env.S3_ACCESS_KEY,
+        secretAccessKey: process.env.S3_SECRET_KEY
+    })
+    const s3 = new aws.S3({
+        signatureVersion: 'v4',
+        region: 'us-east-2',
+        credentials: credentials
+    })
+
+    const s3Params = {
+        Bucket: s3Bucket,
+        Key: fileName,
+        Expires: 60,
+        ContentType: fileType,
+        ACL: 'public-read',
+    };
+
+    s3.getSigned
+    const signedRequest = await s3.getSignedUrlPromise('putObject', s3Params);
+    const url = `https://${s3Bucket}.s3.amazonaws.com/${fileName}`;
+
+    const resBody = {
+        signedRequest: signedRequest,
+        url: url
+    }
+
+    res.json(resBody)
+
+})
 
 
 // APP LISTEN //

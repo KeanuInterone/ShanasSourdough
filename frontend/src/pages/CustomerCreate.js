@@ -5,13 +5,13 @@ import * as API from '../API'
 
 export const CustomerCreate = () => {
 
+    // HOOKS //
+    const history = useHistory()
+
     // Check to see if user logged in
     if (!API.isLoggedIn()) {
         history.push('/login')
     }
-
-    // HOOKS //
-    const history = useHistory()
 
     // EVENTS //
     const onSubmit = async (data) => {

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
+import { DropzoneArea } from 'material-ui-dropzone'
+import ImageUploader from 'react-images-upload';
+import './Admin.css'
 
 
 
@@ -16,12 +19,15 @@ export const ProductForm = ({ product, onSubmit }) => {
             description: product ? product.description : ""
         }
     })
+    const [file, setFile] = useState(null);
 
     // EVENTS //
     const submitHandler = handleSubmit((data) => {
-        onSubmit(data)
+        onSubmit(data, file)
     })
-
+    const fileHandler = (event) => {
+        setFile(event.target.files[0])
+    }
     return (
         <form onSubmit={submitHandler}>
             <TextField
@@ -55,6 +61,14 @@ export const ProductForm = ({ product, onSubmit }) => {
                 type="number"
                 id="price"
             />
+            {(file || product.imageURL) &&
+                (<img className='imageContainer' src={file ? URL.createObjectURL(file) : product.imageURL} />)
+            }
+            <div style={{ height: 20 }}></div>
+
+            <input type='file' onChange={fileHandler} />
+
+            <div style={{ height: 20 }}></div>
 
             <div className='buttonContainer'>
                 <Button type="submit" variant='contained' color='primary' size='large'>

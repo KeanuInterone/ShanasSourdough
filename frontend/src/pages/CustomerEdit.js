@@ -6,14 +6,16 @@ import * as API from '../API'
 
 export const CustomerEdit = () => {
 
-    // Check to see if user logged in
-    if (!API.isLoggedIn()) {
-        history.push('/login')
-    }
+    
 
     // HOOKS //
     const match = useRouteMatch()
     const history = useHistory()
+
+    // Check to see if user logged in
+    if (!API.isLoggedIn()) {
+        history.push('/login')
+    }
 
     // STATES //
     const [customer, setCustomer] = useState()

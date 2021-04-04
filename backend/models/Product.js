@@ -9,6 +9,9 @@ const Product = mongoose.Schema({
     },
     price: {
         type: Number
+    },
+    imageURL: {
+        type: String
     }
 })
 
