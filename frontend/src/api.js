@@ -169,6 +169,8 @@ export async function editCustomer(customer, id) {
     }
 }
 
+
+// IMAGES //
 export async function getSignedImageURL(fileName, fileType) {
     const imageData = {
         fileName: fileName,

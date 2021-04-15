@@ -5,7 +5,7 @@ const Product = require('../models/Product')
 const aws = require('aws-sdk')
 
 
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/', (req, res) => {
     Product.find((err, todos) => {
         if (err) {
             res.status(500).send(err.message)
@@ -13,16 +13,15 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
             res.json(todos)
         }
     })
-}
-);
+});
 
-router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id
-    Product.findById(id, (err, todo) => {
+    Product.findById(id, (err, product) => {
         if (err) {
             res.status(500).send(err.message)
         } else {
-            res.json(todo)
+            res.json(product)
         }
     })
 })

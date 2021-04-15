@@ -61,7 +61,7 @@ export const ProductForm = ({ product, onSubmit }) => {
                 type="number"
                 id="price"
             />
-            {(file || product.imageURL) &&
+            {(file || (product != null && product.imageURL)) &&
                 (<img className='imageContainer' src={file ? URL.createObjectURL(file) : product.imageURL} />)
             }
             <div style={{ height: 20 }}></div>

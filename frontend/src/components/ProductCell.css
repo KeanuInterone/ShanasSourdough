@@ -1,0 +1,69 @@
+div {
+    display: flex;
+}
+
+.cell {
+    height: var(--bread-cell-height);
+    width: calc(var(--bread-cell-height) * 0.6);
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    height: 100px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    background-color: aqua;
+}
+
+.row-quantity-container {
+
+}
+
+
+
+.name {
+    font-size: 20px;
+}
+
+.imageContainer {
+    height: calc(0.6 * var(--bread-cell-height));
+    width: calc(0.6 * var(--bread-cell-height));
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: calc(var(--bread-cell-height) / 2);
+    background-color: bisque;
+}
+.row-image-container {
+    height: 80px;
+    width: 80px;
+    margin-left: 25px;
+    margin-top: 10px;
+    border-radius: 40;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--bread-cell-height) / 2);
+}
+
+.row-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+.add-button {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.quantity {
+    margin: 10px;
+}
+
