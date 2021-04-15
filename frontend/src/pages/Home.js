@@ -11,6 +11,10 @@ import { useHistory } from 'react-router-dom';
 import * as API from '../API'
 import ClipLoader from "react-spinners/ClipLoader"
 
+import styled from "styled-components"
+import bgImg from "../assets/bread.jpg"
+
+
 
 
 
@@ -47,7 +51,7 @@ export const Home = (order, products, productQuantityChange) => {
 
     return (
         <div className={styles.page}>
-            <div className={styles.header}>
+            <HomeHero>
                 <div className={styles.titleContainer}>
                     <h1 className={styles.title}>
                         Shana's Sourdough
@@ -70,7 +74,7 @@ export const Home = (order, products, productQuantityChange) => {
                         width: 60
                     }} />
                 </Button>
-            </div>
+            </HomeHero>
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -123,3 +127,13 @@ export const Home = (order, products, productQuantityChange) => {
 }
 
 export default Home
+
+
+const HomeHero = styled.div`
+    
+    height:40vh;
+    background-image:url(${bgImg});
+    background-repeat:no-repeat;
+    background-size:cover;
+
+`

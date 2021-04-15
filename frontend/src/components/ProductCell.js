@@ -16,7 +16,7 @@ function ProductCell({ order, product, productQuantityChange }) {
         <div className='cell'>
             
             <div className='name'>
-                {product.name}
+                {product.name} - ${product.price}
             </div>
             <div className='imageContainer'>
                 <img className='image' src={product.imageURL}/>
