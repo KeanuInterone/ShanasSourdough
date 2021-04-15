@@ -11,17 +11,22 @@ div {
 }
 
 .row {
+    display:flex;
     height: 100px;
     width: 100%;
     flex-direction: row;
     align-items: center;
     background-color: aqua;
-}
-
-.row-quantity-container {
+    justify-content:space-between;
 
 }
 
+
+/*.row-quantity-container {
+    
+    
+
+}*/
 
 
 .name {
@@ -65,5 +70,6 @@ div {
 
 .quantity {
     margin: 10px;
+
 }
 

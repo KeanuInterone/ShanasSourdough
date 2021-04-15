@@ -8,9 +8,24 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button'
 import ProductRow from '../components/ProductRow'
 
+import styled from "styled-components"
+
 
 export const Cart = (order, products, productQuantityChange) => {
     const history = useHistory()
+
+
+    // const calcCost = (order) => {
+    //     let Total = 0
+    //     Object.keys(order.products).forEach(productId => {
+    //         products.forEach(product => {
+    //             if (product._id == productId) {
+    //                 Total = Total + product.price * product
+    //             }
+    //         })
+    //     })
+
+    // }
 
 
     // EVENTS //
@@ -49,6 +64,28 @@ export const Cart = (order, products, productQuantityChange) => {
             {
                 getProducts()
             }
+
+            <Subtotal>
+                
+                <h3>Subtotal: </h3>
+                <h3>$100.00</h3>
+            </Subtotal>
+
+            
         </div>
+
     )
 }
+
+
+
+
+const Subtotal = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+    padding:40px 20px
+
+
+    
+`
